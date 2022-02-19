@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-center">Login</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="row">
+                    <div class="col-md-9 m-auto mt-2">
+                        <label for="email">Email</label>
+                        <input type="email" formControlName="email" id="email" class="form-control form-control-lg" placeholder="Email"/>
+                    </div>
+
+                    <div class="col-md-9 m-auto mt-2">
+                        <label for="password">Password</label>
+                        <input formControlName="password" type="password" id="password" class="form-control form-control-lg" placeholder="Email"/>
+                    </div>
+
+                    <div class="col-md-9 m-auto mt-2">
+                        <button class="form-control form-control-lg site-btn">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-9 m-auto">
+                    <h3 class="text-center">Create your account</h3>
+                    <p>
+                        Create your Jumia customer account in just a few clicks! You can register either using your e-mail address or through your Facebook account.
+                    </p>
+                </div>
+                
+                <div class="col-md-9 m-auto">
+                    <button class="form-control form-control-lg btn btn-primary">Create Account</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

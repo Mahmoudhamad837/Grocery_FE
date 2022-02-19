@@ -1,0 +1,9 @@
+::ng-deep nz-card{
+    height: 260px;
+    align-items: center;
+    margin-bottom: 20px !important;
+}
+
+::ng-deep .ant-card-body p{
+    margin: 0px;
+}

@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 m-auto">
+            <h3 class="text-center">Verify User</h3>
+            <form [formGroup]="verifyForm" (ngSubmit)="verify()">
+                <div class="row">
+
+                    <div class="col-md-8 m-auto my-3">
+                        <label for="code">Code</label>
+                        <input type="text" formControlName="code" class="form-control" id="code" placeholder="Verification Code"/>
+                    </div>
+
+                    <div class="col-md-8 m-auto mb-3">
+                        <button class="form-control site-btn">Verify</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

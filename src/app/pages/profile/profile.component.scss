@@ -1,0 +1,46 @@
+::ng-deep .ant-tabs-tab{
+    width: 200px !important;
+}
+
+::ng-deep .ant-tabs-tab-btn{
+    font-size: 20px;
+}
+
+.anticon{
+    vertical-align: 0;
+}
+
+::ng-deep .ant-tabs-tab-active{
+    background: #7fad39;
+}
+
+::ng-deep .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+    color: #fff;
+}
+
+img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.main-image{
+    position: relative;
+
+    &:hover{
+        .inner{
+            display: block;
+        }
+    }
+}
+
+.inner{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    opacity: 0.9;
+    padding: 15px 0px;
+}

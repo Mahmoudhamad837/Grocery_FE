@@ -1,0 +1,87 @@
+@import "src/assets/styles/_variable";
+
+.checkout__input {
+    margin-bottom: 24px;
+
+    p {
+        color: $normal-color;
+        margin-bottom: 20px;
+
+        span {
+            color: #dd2222;
+        }
+    }
+
+    input {
+        width: 100%;
+        height: 46px;
+        border: 1px solid $border;
+        padding-left: 20px;
+        font-size: 16px;
+        color: #b2b2b2;
+        border-radius: 4px;
+
+        &.checkout__input__add {
+            margin-bottom: 20px;
+        }
+
+        &::placeholder {
+            color: #b2b2b2;
+        }
+    }
+}
+
+.checkout__input__checkbox {
+    margin-bottom: 10px;
+
+    label {
+        position: relative;
+        font-size: 16px;
+        color: $normal-color;
+        padding-left: 40px;
+        cursor: pointer;
+
+        input {
+            position: absolute;
+            visibility: hidden;
+
+            &:checked {
+
+                &~.checkmark {
+                    background: $primary-color;
+                    border-color: $primary-color;
+
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .checkmark {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            height: 16px;
+            width: 14px;
+            border: 1px solid #a6a6a6;
+            content: '';
+            border-radius: 4px;
+
+            &:after {
+                position: absolute;
+                left: 1px;
+                top: 1px;
+                width: 10px;
+                height: 8px;
+                border: solid white;
+                border-width: 3px 3px 0px 0px;
+                -webkit-transform: rotate(127deg);
+                -ms-transform: rotate(127deg);
+                transform: rotate(127deg);
+                content: '';
+                opacity: 0;
+            }
+        }
+    }
+}

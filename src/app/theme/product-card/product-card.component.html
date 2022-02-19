@@ -1,0 +1,14 @@
+<div class="product__item">
+    <div class="product__item__pic set-bg">
+        <img [src]="productData.image" alt="image"/>
+        <ul class="product__item__pic__hover">
+            <li><a (click)="addToFavorite(productData)"><i class="fa fa-heart"></i></a></li>
+            <li><a ><i class="fa fa-retweet"></i></a></li>
+            <li><a (click)="addToCart(productData)"><i class="fa fa-shopping-cart"></i></a></li>
+        </ul>
+    </div>
+    <div class="product__item__text">
+        <h6><a (click)="navigateProduct(productData._id)">{{productData.title}}</a></h6>
+        <h5>${{productData.price}}</h5>
+    </div>
+</div>

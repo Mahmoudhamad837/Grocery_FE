@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 text-center" (click)="addAddress()">
+      <nz-card style="margin-top: 16px; cursor: pointer;">
+        <i nz-icon nzType="plus" nzTheme="outline"></i>
+        <p>Add Address</p>
+      </nz-card>
+    </div>
+    <div class="col-md-4" *ngFor="let address of addresses">
+      <nz-card style="margin-top: 16px" [nzTitle]="address.isDefault? 'Default' : 'Address '" [nzActions]="address.isDefault?[actionEdit, actionDelete]:[actionEdit, actionDelete, actionDefault]">
+        <p>{{address.fullName}}</p>
+        <p>{{address.streetName}}</p>
+        <p>{{address.district}} {{address.city}} {{address.country}}</p>
+        <p>Phone Number: {{address.mobileNumber}}</p>
+      </nz-card>
+      
+      <ng-template #actionEdit>
+        <i nz-icon nz-popover nzPopoverContent="Edit" nzType="edit" (click)="editAddress(address._id)"></i>
+      </ng-template>
+      <ng-template #actionDelete>
+        <i nz-icon nz-popover nzPopoverContent="Delete" nzType="delete" nzTheme="outline" (click)="deleteAddress()"></i>
+      </ng-template>
+      <ng-template #actionDefault>
+        <i nz-icon nz-popover nzPopoverContent="Set As Default" nzType="check" nzTheme="outline" (click)="setAsDefault(address, address._id)"></i>
+      </ng-template>
+    </div>
+  </div>
+</div>
