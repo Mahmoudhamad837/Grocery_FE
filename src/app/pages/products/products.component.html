@@ -6,29 +6,84 @@
                 <div class="sidebar">
                     <div class="sidebar__item">
                         <h4>Department</h4>
-                        <ul>
-                            <li *ngFor="let category of categories"><a href="#">{{category.title.en}}</a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar__item">
-                        <h4>Price</h4>
-                        <div class="price-range-wrap">
-                            <!-- <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                data-min="10" data-max="540">
-                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                        <div class="container check_box_filtter">
+                            <div class="filtter_title pt-4">
+                                <h5>Filter</h5>
+                                <h5> <i type="button" class="fa fa-repeat"></i> Reset</h5>
                             </div>
-                            <div class="range-slider">
-                                <div class="price-input">
-                                    <input type="text" id="minamount">
-                                    <input type="text" id="maxamount">
+                            <div id="fillterOfCatigory">
+                                <div class="catigory_filtter py-4">
+                                    <h5>Category</h5>
                                 </div>
-                            </div> -->
-
-                            <nz-slider [nzMarks]="marks" [nzMax]="1000" [nzMin]="1" nzRange [(ngModel)]="value2"></nz-slider>
+                                <div class="form-check check_box_catigory">
+                                    <label class="form-check-label" for="flexCheckAll">
+                                        <input class="form-check-input d-none" mane="catigory" type="checkbox"
+                                            value="" id="flexCheckAll" checked>
+                                        <i class="fa fa-check checkbox_mark" type="checkbox"></i>
+                                        
+                                        All
+                                    </label>
+                                </div>
+                                <div class="form-check check_box_catigory" *ngFor="let category of categories">
+                                    <label  class="form-check-label" for="flexCheck_BackBraces">
+                                        <input class="form-check-input d-none" mane="catigory" type="checkbox"
+                                            value="" id="flexCheck_BackBraces">
+                                        <i class="fa fa-check checkbox_mark" type="checkbox"></i>
+                                        {{category.title.en}}
+                                    </label>
+                                </div>
+                                
+                            </div>
+                            <div id="fillterOfPrice">
+                                <div class="price_filtter py-4">
+                                    <h5>Price</h5>
+                                </div>
+                                <div class="form-check check_box_price">
+                                    <label class="form-check-label" for="flexPriceAll">
+                                        <input class="form-check-input d-none" mane="price" type="checkbox" value=""
+                                            id="flexPriceAll" checked>
+                                        <i class="fa fa-check checkbox_mark" type="checkbox"></i>
+                                        All
+                                    </label>
+                                </div>
+                                <div class="form-check check_box_price">
+                                    <label class="form-check-label" for="flexCheck_50_100EGP">
+                                        <input class="form-check-input d-none" mane="price" type="checkbox" value=""
+                                            id="flexCheck_50_100EGP">
+                                        <i class="fa fa-check checkbox_mark" type="checkbox"></i>
+                                        50 to 100 EGP
+                                    </label>
+                                </div>
+                                <div class="form-check check_box_price">
+                                    <label class="form-check-label" for="flexCheck_100_200EGP">
+                                        <input class="form-check-input d-none" mane="price" type="checkbox" value=""
+                                            id="flexCheck_100_200EGP">
+                                        <i class="fa fa-check checkbox_mark" type="checkbox"></i>
+                                        100 to 200 EGP
+                                    </label>
+                                </div>
+                                <div class="form-check check_box_price">
+                                    <label class="form-check-label" for="flexCheck_200_300EGP">
+                                        <input class="form-check-input d-none" mane="price" type="checkbox" value=""
+                                            id="flexCheck_200_300EGP">
+                                        <i class="fa fa-check checkbox_mark" type="checkbox"></i>
+                                        200 to 300 EGP
+                                    </label>
+                                </div>
+                                <div class="form-check check_box_price">
+                                    <label class="form-check-label" for="flexCheck_300_400EGP">
+                                        <input class="form-check-input d-none" mane="price" type="checkbox" value=""
+                                            id="flexCheck_300_400EGP">
+                                        <i class="fa fa-check checkbox_mark" type="checkbox"></i>
+                                        300 to 400 EGP
+                                    </label>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
+<!-- 
+                    sidebar-color sidebar-size
                     <div class="sidebar__item sidebar__item__color--option">
                         <h4>Colors</h4>
                         <div class="sidebar__item__color sidebar__item__color--white">
@@ -94,7 +149,7 @@
                                 <input type="radio" id="tiny">
                             </label>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="sidebar__item">
                         <div class="latest-product__text">
                             <h4>Latest Products</h4>
@@ -253,12 +308,73 @@
                 <div class="filter__item">
                     <div class="row">
                         <div class="col-lg-4 col-md-5">
-                            <div class="filter__sort">
-                                <span>Sort By</span>
-                                <select>
-                                    <option value="0">Default</option>
-                                    <option value="0">Default</option>
-                                </select>
+                            <div class="sorted_by">
+                                <div class="sort_by">
+                                    <span>Sort by</span>
+                                </div>
+                                <div class="sorted_choice">
+                                    <div class="select-box">
+                                        <div class="select-box__current" tabindex="1">
+                                            <div class="select-box__value">
+                                                <input class="select-box__input" type="radio" id="0" value="1"
+                                                    name="sort__by" checked="checked" />
+                                                <p class="select-box__input-text">Popularity</p>
+                                            </div>
+                                            <div class="select-box__value">
+                                                <input class="select-box__input" type="radio" id="1" value="2"
+                                                    name="sort__by" />
+                                                <p class="select-box__input-text">Newest Arrivals</p>
+                                            </div>
+                                            <div class="select-box__value">
+                                                <input class="select-box__input" type="radio" id="2" value="3"
+                                                    name="sort__by" />
+                                                <p class="select-box__input-text">Price: Low to High</p>
+                                            </div>
+                                            <div class="select-box__value">
+                                                <input class="select-box__input" type="radio" id="3" value="4"
+                                                    name="sort__by" />
+                                                <p class="select-box__input-text">Price: High to Low</p>
+                                            </div>
+                                            <div class="select-box__value">
+                                                <input class="select-box__input" type="radio" id="4" value="5"
+                                                    name="sort__by" />
+                                                <p class="select-box__input-text">Product Rating</p>
+                                            </div>
+                                                <i class=" select-box__icon fa fa-angle-down"></i>
+                                        </div>
+                                        <ul class="select-box__list">
+                                            <li class="">
+                                                <label class="select-box__option" for="0"
+                                                    aria-hidden="aria-hidden"> Popularity 
+                                                    <i class="fa fa-check checkbox_mark"></i></label>
+                                            </li>
+                                            <li>
+                                                <label class="select-box__option" for="1"
+                                                    aria-hidden="aria-hidden">Newest Arrivals
+                                                    <i class="fa fa-check checkbox_mark"></i>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="select-box__option" for="2"
+                                                    aria-hidden="aria-hidden">Price: Low to High
+                                                    <i class="fa fa-check checkbox_mark"></i>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="select-box__option" for="3"
+                                                    aria-hidden="aria-hidden">Price: High to Low
+                                                    <i class="fa fa-check checkbox_mark"></i>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="select-box__option" for="4"
+                                                    aria-hidden="aria-hidden">Product Rating
+                                                    <i class="fa fa-check checkbox_mark"></i>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
@@ -268,22 +384,30 @@
                         </div>
                         <div class="col-lg-4 col-md-3">
                             <div class="filter__option">
-                                <span class="icon_grid-2x2"></span>
-                                <span class="icon_ul"></span>
+                                <span class="icon_grid-2x2" (click)="setOneColumn('col-lg-4 col-md-6 col-sm-6')"></span>
+                                <span class="icon_ul" (click)="setOneColumn('col-lg-12')"></span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let data of products">
+                    <div [ngClass]="displayClass" *ngFor="let data of products">
                         <app-product-card [productData]="data"></app-product-card>
                     </div>
+
                 </div>
-                <div class="product__pagination">
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+
+                <div id="product__pagination" class="pt-5">
+                    <div class="pagination">
+                        <a href="#"><i class="fa fa-long-arrow-left"></i></a>
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">...</a>
+                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 <div class="product__item">
-    <div class="product__item__pic set-bg">
-        <img [src]="productData.image" alt="image"/>
+    <div class="product__item__pic set-bg" [ngStyle]="{'background-image': 'url(' + productData.image + ')'}">
+        <!-- <img [src]="productData.image" alt="image"/> -->
         <ul class="product__item__pic__hover">
             <li><a (click)="addToFavorite(productData)"><i class="fa fa-heart"></i></a></li>
             <li><a ><i class="fa fa-retweet"></i></a></li>
