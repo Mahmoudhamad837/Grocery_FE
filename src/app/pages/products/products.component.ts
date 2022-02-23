@@ -10,6 +10,8 @@ import { ProductService } from './product.service';
 })
 export class ProductsComponent implements OnInit {
 
+  
+
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
@@ -34,7 +36,7 @@ export class ProductsComponent implements OnInit {
     },
     nav: true
   }
-
+  displayClass:string='col-lg-4 col-md-6 col-sm-6'
   products: any[] = [];
   categories: any[] = [];
   productsCount: number;
@@ -58,6 +60,10 @@ export class ProductsComponent implements OnInit {
         this.categories = res;
       }
     );
+  }
+  setOneColumn(clumnClass:any){
+    this.displayClass=clumnClass
+    
   }
 
   getProducts(){
