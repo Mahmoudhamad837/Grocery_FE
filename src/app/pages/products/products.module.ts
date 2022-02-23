@@ -7,8 +7,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ThemeModule } from 'src/app/theme/theme.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NzRateModule } from 'ng-zorro-antd/rate';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,9 @@ import { FormsModule } from '@angular/forms';
     CarouselModule,
     ThemeModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NzRateModule
   ]
 })
 export class ProductsModule { }

@@ -249,3 +249,11 @@
     box-shadow: 5px 5px 8px black;
     padding: 15px;
   }
+
+  ::ng-deep .ant-radio-wrapper{
+      display: block;
+  }
+
+  ::ng-deep .ant-radio-group{
+      display: block;
+  }

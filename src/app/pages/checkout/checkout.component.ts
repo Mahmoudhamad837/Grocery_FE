@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { StripeCardElementOptions, StripeElementsOptions } from '@stripe/stripe-js';
 import { StripeCardComponent, StripeService } from 'ngx-stripe';
 import { MenuItem } from 'primeng/api';
 import { CartService } from '../cart/cart.service';
+import { PagesService } from '../pages.service';
 
 export enum PageName {
   AddressPage,
@@ -46,10 +48,16 @@ export class CheckoutComponent implements OnInit {
   stripeTest: FormGroup;
   products: any[] = [];
   totalPrice: any = 0;
+  radioValue: any;
+  MethodValue: any;
+  addresses: any[] = [];
+  isVisible = false;
   constructor(
     private fb: FormBuilder, 
     private stripeService: StripeService,
-    private cartService: CartService
+    private cartService: CartService,
+    private pagesService: PagesService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -67,6 +75,8 @@ export class CheckoutComponent implements OnInit {
       name: ['', [Validators.required]]
     });
     this.getCartProducts();
+
+    this.getUserAddresses();
   }
 
   createToken(): void {
@@ -95,6 +105,57 @@ export class CheckoutComponent implements OnInit {
     products.forEach(element=>{
       this.totalPrice += element.price * element.count;
     });
+  }
+
+  getUserAddresses(){
+    this.pagesService.getUserAddresses().subscribe(
+      (res: any)=>{
+        this.addresses = res['address']
+      },
+      error=>{
+        console.log(error);
+      }
+    );
+  }
+
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    console.log('Button ok clicked!');
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isVisible = false;
+  }
+
+  nextPage(page: string){
+    switch(page){
+      case'PaymentPage':{
+        this.index = PageName.PaymentPage;
+        break;
+      };
+      case'SummaryPage':{
+        this.index = PageName.SummaryPage;
+        break;
+      }
+    }
+  }
+
+  previousPage(page: string){
+    switch(page){
+      case'PaymentPage':{
+        this.index = PageName.PaymentPage;
+        break;
+      };
+      case'AddressPage':{
+        this.index = PageName.AddressPage;
+        break;
+      }
+    }
   }
 
 }

@@ -223,3 +223,18 @@
 .related__product__title {
     margin-bottom: 70px;
 }
+
+/*------------------
+Owl Carousel
+-------------------*/
+::ng-deep .owl-carousel .owl-item{
+    padding: 0px 10px !important;
+}
+
+::ng-deep .owl-carousel .owl-item :first-child{
+    padding-left: 0px;
+}
+
+::ng-deep .owl-carousel .owl-item :last-child{
+    padding-right: 0px;
+}

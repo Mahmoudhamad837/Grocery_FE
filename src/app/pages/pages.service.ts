@@ -45,4 +45,8 @@ export class PagesService {
   deleteAddress(id:any){
     return this.http.delete('addresses/' + id, {});
   }
+
+  reviewProduct(data: any){
+    return this.http.post('reviews/', data, {});
+  }
 }

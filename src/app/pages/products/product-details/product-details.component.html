@@ -5,19 +5,23 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
-                        <img class="product__details__pic__item--large"
-                            [src]="product?.image" [alt]="product?.title?.en">
+                        <img class="product__details__pic__item--large" [src]="mainImage"
+                            [alt]="product?.title?.en">
                     </div>
-                    <div class="product__details__pic__slider owl-carousel">
-                        <img data-imgbigurl="assets/images/product/details/product-details-2.jpg"
-                            src="assets/images/product/details/thumb-1.jpg" alt="">
-                        <img data-imgbigurl="assets/images/product/details/product-details-3.jpg"
-                            src="assets/images/product/details/thumb-2.jpg" alt="">
-                        <img data-imgbigurl="assets/images/product/details/product-details-5.jpg"
-                            src="assets/images/product/details/thumb-3.jpg" alt="">
-                        <img data-imgbigurl="assets/images/product/details/product-details-4.jpg"
-                            src="assets/images/product/details/thumb-4.jpg" alt="">
-                    </div>
+                    <!-- <div class="product__details__pic__slider owl-carousel">
+                        <img src="assets/images/product/details/thumb-1.jpg" alt="">
+                        <img src="assets/images/product/details/thumb-2.jpg" alt="">
+                        <img src="assets/images/product/details/thumb-3.jpg" alt="">
+                        <img src="assets/images/product/details/thumb-4.jpg" alt="">
+                    </div> -->
+
+                    <owl-carousel-o [options]="customOptions">
+                        <ng-container *ngFor="let slide of slidesStore">
+                            <ng-template carouselSlide [id]="slide">
+                                <img [src]="slide" [alt]="slide" (click)="changeMain(slide)" [title]="slide">
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -43,7 +47,8 @@
                     <a (click)="addToCart(product, quantity)" class="primary-btn">ADD TO CARD</a>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
-                        <li><b>Availability</b> <span *ngIf="product?.stockStatus">In Stock</span> <span *ngIf="!product?.stockStatus">Out Of Stock</span></li>
+                        <li><b>Availability</b> <span *ngIf="product?.stockStatus">In Stock</span> <span
+                                *ngIf="!product?.stockStatus">Out Of Stock</span></li>
                         <!-- <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
                         <li><b>Weight</b> <span>0.5 kg</span></li>
                         <li><b>Share on</b>
@@ -61,8 +66,8 @@
                 <div class="product__details__tab">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabs-1" type="button" role="tab"
-                                aria-selected="true" aria-controls="tabs-1">Description</a>
+                            <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabs-1" type="button"
+                                role="tab" aria-selected="true" aria-controls="tabs-1">Description</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tabs-2" role="tab" type="button"
@@ -70,7 +75,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tabs-3" role="tab" type="button"
-                            aria-selected="false" aria-controls="tabs-3">Reviews <span>(1)</span></a>
+                                aria-selected="false" aria-controls="tabs-3">Reviews <span>(1)</span></a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -88,11 +93,36 @@
                                     Vivamus suscipit tortor.</p>
                             </div>
                         </div>
+                        <!--Review Section-->
                         <div class="tab-pane fade" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
-                                <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                    Pellentesque </p>
+                                <h6>Review Product</h6>
+                                <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4>Overall rating</h4>
+                                            <nz-rate formControlName="rating"></nz-rate>  
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h4>Add a headline</h4>
+                                            <input type="text" class="form-control" formControlName="title"/> 
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h4>Your Bublic Name</h4>
+                                            <input type="text" class="form-control" formControlName="publicName"/> 
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h4>Add a written review</h4>
+                                            <textarea rows="5" class="form-control" formControlName="review"></textarea>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <input type="text" class="form-control invisible" formControlName="product" value="{{id}}"/> 
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="site-btn" type="submit">Submit</button>
+                                </form>
+                                
                             </div>
                         </div>
                     </div>

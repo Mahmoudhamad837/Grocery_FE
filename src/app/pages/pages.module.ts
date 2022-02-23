@@ -17,7 +17,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { NgPaymentCardModule } from 'ng-payment-card';
 import { NgxStripeModule } from 'ngx-stripe';
 import { AddressModule } from './address/address.module';
-
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,8 @@ import { AddressModule } from './address/address.module';
     OrdersModule,
     AddressModule,
     NgPaymentCardModule,
+    NzRadioModule,
+    NzModalModule,
     NgxStripeModule.forRoot('pk_test_51KKkUVHYxjanX8wZw0PQ6JiMZ5xIpL3HWDOjyr6ghwhhB26aJFImT49huY9K83eXRlm4tliQOdvMpX9e41L9H17b00gNVpRz5z'),
   ]
 })
