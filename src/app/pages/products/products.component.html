@@ -5,7 +5,6 @@
             <div class="col-lg-3 col-md-5">
                 <div class="sidebar">
                     <div class="sidebar__item">
-                        <h4>Department</h4>
                         <div class="container check_box_filtter">
                             <div class="filtter_title pt-4">
                                 <h5>Filter</h5>
@@ -17,16 +16,15 @@
                                 </div>
                                 <div class="form-check check_box_catigory">
                                     <label class="form-check-label" for="flexCheckAll">
-                                        <input class="form-check-input d-none" mane="catigory" type="checkbox"
+                                        <input class="form-check-input d-none" name="catigory" type="checkbox"
                                             value="" id="flexCheckAll" checked>
-                                        <i class="fa fa-check checkbox_mark" type="checkbox"></i>
-                                        
+                                        <i class="fa fa-check checkbox_mark" type="checkbox"></i>             
                                         All
                                     </label>
                                 </div>
                                 <div class="form-check check_box_catigory" *ngFor="let category of categories">
                                     <label  class="form-check-label" for="flexCheck_BackBraces">
-                                        <input class="form-check-input d-none" mane="catigory" type="checkbox"
+                                        <input class="form-check-input d-none" name="catigory" type="checkbox"
                                             value="" id="flexCheck_BackBraces">
                                         <i class="fa fa-check checkbox_mark" type="checkbox"></i>
                                         {{category.title.en}}
