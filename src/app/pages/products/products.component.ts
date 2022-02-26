@@ -77,4 +77,8 @@ export class ProductsComponent implements OnInit {
       }
     );
   }
+
+  changeSelect(event: any){
+    console.log(event.target.value);
+  }
 }

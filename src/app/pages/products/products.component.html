@@ -24,10 +24,10 @@
                                         All
                                     </label>
                                 </div>
-                                <div class="form-check check_box_catigory" *ngFor="let category of categories">
-                                    <label  class="form-check-label" for="flexCheck_BackBraces">
-                                        <input class="form-check-input d-none" mane="catigory" type="checkbox"
-                                            value="" id="flexCheck_BackBraces">
+                                <div class="form-check check_box_catigory" *ngFor="let category of categories; let i = index">
+                                    <label  class="form-check-label" [for]="category._id">
+                                        <input class="form-check-input d-none" name="category" type="checkbox"
+                                            (change)="changeSelect($event)" [value]="category._id" [id]="category._id">
                                         <i class="fa fa-check checkbox_mark" type="checkbox"></i>
                                         {{category.title.en}}
                                     </label>
