@@ -18,6 +18,9 @@ import { NgxStripeModule } from 'ngx-stripe';
 import { AddressModule } from './address/address.module';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { PolicyComponent } from './policy/policy.component';
+import { PagesComponent } from './pages.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
     FavoriteComponent,
     ProfileComponent,
     NotFoundComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AboutusComponent,
+    PolicyComponent,
+    PagesComponent
   ],
   imports: [
     CommonModule,

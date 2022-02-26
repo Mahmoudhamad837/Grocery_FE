@@ -45,6 +45,8 @@ export class ProductDetailsComponent implements OnInit {
   mainImage: string = '';
   reviewForm: FormGroup;
   id: any;
+  /////////////////////////////////
+  //////////////////////////////////
   constructor(
     private productService: ProductService,
     private router: Router,
@@ -73,6 +75,7 @@ export class ProductDetailsComponent implements OnInit {
     this.productService.getProduct(id).subscribe(
       (res :any)=>{
         this.product = res['product'];
+        this.mainImage=res.product.image;
         this.reviewForm.patchValue({product: this.product._id});
         this.relatedProducts = res['relatedProducts'];
         this.relatedProducts.forEach(ele=>{
@@ -100,6 +103,7 @@ export class ProductDetailsComponent implements OnInit {
       product: new FormControl('', [Validators.required])
     });
   }
+  
 
   onSubmit(){
     console.log(this.reviewForm.value);

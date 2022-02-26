@@ -396,7 +396,7 @@
 }
 
 .filter__item {
-    padding-top: 45px;
+    padding-top: 20px;
     border-top: 1px solid $border;
     padding-bottom: 20px;
 }
@@ -755,7 +755,7 @@
 
 .select-box__current {
     position: relative;
-    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     outline: none;
 }
@@ -776,7 +776,7 @@
 .select-box__icon {
     position: absolute;
     top: 50%;
-    right: 7px;
+    right: 13px;
     transform: translateY(-50%);
     width: 8px;
     transition: 0.2s ease;
@@ -800,7 +800,7 @@
     font-size: 16px !important;
     width: 100%;
     margin: 0;
-    padding: 7px 20px !important;
+    padding: 7px 30px 7px 20px !important;
     text-align: center;
     // background-color: #fafafa;
     border: solid 1px #00000016;
