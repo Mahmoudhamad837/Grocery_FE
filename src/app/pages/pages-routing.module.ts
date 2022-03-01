@@ -6,19 +6,23 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { HomeComponent } from './home/home.component';
+import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'products', loadChildren: ()=> import('./products/products.module').then(m=> m.ProductsModule) },
-  { path: 'orders', loadChildren: ()=> import('./orders/orders.module').then(m=> m.OrdersModule) },
-  { path: 'address', loadChildren: ()=> import('./address/address.module').then(m=> m.AddressModule) },
-  { path: 'cart', component: CartComponent },
-  { path: 'favorite', component: FavoriteComponent },
-  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
-  { path: 'contact-us', component: ContactUsComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  },
+  { path: '', component: PagesComponent, children:[
+    { path:'', redirectTo:'home', pathMatch:'full' },
+    { path: 'products', loadChildren: ()=> import('./products/products.module').then(m=> m.ProductsModule) },
+    { path: 'orders', loadChildren: ()=> import('./orders/orders.module').then(m=> m.OrdersModule) },
+    { path: 'address', loadChildren: ()=> import('./address/address.module').then(m=> m.AddressModule) },
+    { path: 'cart', component: CartComponent },
+    { path: 'favorite', component: FavoriteComponent },
+    { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
+    { path: 'contact-us', component: ContactUsComponent },
+    { path: 'home', component: HomeComponent },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  },
+  ] },
+  
 ];
 
 @NgModule({

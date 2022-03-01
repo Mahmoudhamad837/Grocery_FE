@@ -387,10 +387,10 @@ Owl Carousel
 /*review popup*/
 
 #write_review .review-card {
-    width: 375px;
-    height: 360px;
+    // width: 375px;
+    // height: 360px;
     border-radius: 20px;
-    margin: auto;
+    // margin: auto;
 }
 
 #write_review h4 {
@@ -403,7 +403,7 @@ Owl Carousel
 /*star modal*/
 
 div.stars {
-    display: inline-block
+    display: block
 }
 
 input.star {
@@ -471,3 +471,11 @@ label.star:before {
     }
 }
 
+.modal-content{
+    border-radius: 20px;
+    border: none;
+}
+
+.modal-body{
+    padding: 0;
+}

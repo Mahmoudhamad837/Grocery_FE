@@ -45,6 +45,9 @@ export class ProductDetailsComponent implements OnInit {
   mainImage: string = '';
   reviewForm: FormGroup;
   id: any;
+  reviews: any[] = [];
+  ratings: number = 0;
+  avgRating: number;
   /////////////////////////////////
   //////////////////////////////////
   constructor(
@@ -81,6 +84,11 @@ export class ProductDetailsComponent implements OnInit {
         this.relatedProducts.forEach(ele=>{
           ele.title = ele.title.en;
         });
+        this.reviews = res['reviews'];
+        this.reviews.forEach(review=>{
+          this.ratings += review.rating;
+        });
+        this.avgRating = this.ratings/this.reviews.length;
       }
     );
   }
@@ -96,10 +104,9 @@ export class ProductDetailsComponent implements OnInit {
 
   initForm(){
     this.reviewForm = new FormGroup({
-      rating: new FormControl('', [Validators.required, Validators.min(1), Validators.max(5)]),
+      rating: new FormControl(0, [Validators.required, Validators.min(1), Validators.max(5)]),
       title: new FormControl('', [Validators.required]),
       review: new FormControl('', [Validators.required]),
-      publicName: new FormControl('', [Validators.required]),
       product: new FormControl('', [Validators.required])
     });
   }

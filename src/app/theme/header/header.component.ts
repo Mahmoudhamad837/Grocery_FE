@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { CartService } from 'src/app/pages/cart/cart.service';
 import { FavoriteService } from 'src/app/pages/favorite/favorite.service';
@@ -16,7 +17,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private favoriteService: FavoriteService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -45,6 +47,10 @@ export class HeaderComponent implements OnInit {
   logout(){
     localStorage.removeItem('token');
     this.authService.isLogged.next(false);
+  }
+
+  gotoPage(page: any){
+    this.router.navigate([page]);
   }
 
 }

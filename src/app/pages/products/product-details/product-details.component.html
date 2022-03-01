@@ -116,7 +116,7 @@
                                 <div class="reviews1">
                                     <div class="row ">
                                         <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5 col-5">
-                                            <h2>4.0</h2>
+                                            <h2>{{avgRating | number: '1.0-1'}}</h2>
                                             <div class="reviews-number pb-3">
                                                 <i class="icon-star3 icon-star7"></i>
                                                 <i class="icon-star3 icon-star7"></i>
@@ -124,7 +124,7 @@
                                                 <i class="icon-star3 icon-star7"></i>
                                                 <i class="icon-star3 "> </i>
                                                 <div>
-                                                    <span>12,715 reviews</span>
+                                                    <span>{{reviews.length}} reviews</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -190,7 +190,7 @@
                                                                     <h4 class="card-title mb-1">Write a Review</h4>
                                                                     <div class="stars py-4">
                                                                         
-                                                                        <form class="m-0" action="">
+                                                                        <form class="m-0" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
                                                                             <!-- <input class="star star-1" id="star-1" type="radio" name="star_rate" />
                                                                             <label class="star star-1" for="star-1"></label>
                                                                             <input class="star star-2" id="star-2" type="radio" name="star_rate" />
@@ -201,15 +201,26 @@
                                                                             <label class="star star-4" for="star-4"></label>
                                                                             <input class="star star-5" id="star-5" type="radio" name="star_rate" />
                                                                             <label class="star star-5" for="star-5"></label> -->
-                                                                            <nz-rate [ngModel]="0" name="rate" ></nz-rate>
+                                                                            <div class="form-group">
+                                                                                <label for="rating">Overall rating</label>
+                                                                                <nz-rate id="rating" class="form-control" formControlName="rating" name="rate" ></nz-rate>
+                                                                            </div>
+                                                                            
+                                                                            <div class="form-group">
+                                                                                <label for="headline">Add a headline</label>
+                                                                                <input class="w-100 form-control" formControlName="title" id="headline" type="text" placeholder="What's important to know?">
+                                                                            </div>
+
+                                                                            <div class="form-group">
+                                                                                <label for="review">Add a written review</label>
+                                                                                <textarea class="form-control" formControlName="review" rows="5" id="review" placeholder="What did you like or dislike? What did you use this product for?"></textarea>
+                                                                            </div>
+                                                                            <div class="submit_review">
+                                                                                <button class="btn ">Submit</button>
+                                                                            </div>
                                                                         </form>
                                                                     </div>
-                                                                    <div class="write_reviw pb-4">
-                                                                        <input class="w-100 " type="text" placeholder="Write your review here">
-                                                                    </div>
-                                                                    <div class="submit_review">
-                                                                        <button class="btn ">Submit</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -221,23 +232,19 @@
                                     </div>
 
                                     <div class="row do-border3 ">
-                                        <div class="testimonial">
+                                        <div class="testimonial" *ngFor="let review of reviews">
                                             <div class="testi-image">
-                                                <a href="#"><img src="../../../../assets/images/testmonials/khaled.png" alt="Customer Testimonails"></a>
+                                                <a><img src="../../../../assets/images/testmonials/khaled.png" alt="Customer Testimonails"></a>
                                             </div>
                                             <div class="testi-stars">
                                                 <div class="reviews-number pb-3 ">
-                                                    <p class="m-0">Mohamed Ali</p>
-                                                    <i class="fa fa-star icon-star7"></i>
-                                                    <i class="fa fa-star icon-star7"></i>
-                                                    <i class="fa fa-star icon-star7"></i>
-                                                    <i class="fa fa-star icon-star7"></i>
-                                                    <i class="fa fa-star "> </i>
+                                                    <p class="m-0">{{review.user.name}}</p>
+                                                    <nz-rate [ngModel]="review.rating" name="rates" ></nz-rate>
                                                 </div>
                                             </div>
                                             <div class="testi-content py-2">
                                                 <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                                                    {{review.review}}
                                                 </p>
                                                 <p class="minute">
                                                     3 months ago

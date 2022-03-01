@@ -91,9 +91,9 @@
                             <i class="fa fa-user"></i> 
                             
                             <ul>
-                                <li *ngIf="!isLogged"><a routerLink="auth/login">Login</a></li>
-                                <li *ngIf="!isLogged"><a routerLink="auth/signup">Signup</a></li>
-                                <li *ngIf="isLogged"><a routerLink="pages/profile">Profile</a></li>
+                                <li *ngIf="!isLogged"><a (click)="gotoPage('auth/login')">Login</a></li>
+                                <li *ngIf="!isLogged"><a (click)="gotoPage('auth/signup')">Signup</a></li>
+                                <li *ngIf="isLogged"><a routerLink="profile">Profile</a></li>
                                 <li *ngIf="isLogged"><a (click)="logout()">Logout</a></li>
                             </ul>
                         </div>
@@ -112,17 +112,17 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li routerLinkActive="active"><a routerLink="pages/home">Home</a></li>
-                        <li routerLinkActive="active"><a routerLink="pages/products">Products</a></li>
-                        <li routerLinkActive="active"><a routerLink="pages/contact-us">Contact</a></li>
+                        <li routerLinkActive="active"><a routerLink="home">Home</a></li>
+                        <li routerLinkActive="active"><a routerLink="products">Products</a></li>
+                        <li routerLinkActive="active"><a routerLink="contact-us">Contact</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a routerLink="pages/favorite"><i class="fa fa-heart"></i> <span>{{favoriteCount}}</span></a></li>
-                        <li><a routerLink="pages/cart"><i class="fa fa-shopping-bag"></i> <span>{{cartCount}}</span></a></li>
+                        <li><a routerLink="favorite"><i class="fa fa-heart"></i> <span>{{favoriteCount}}</span></a></li>
+                        <li><a routerLink="cart"><i class="fa fa-shopping-bag"></i> <span>{{cartCount}}</span></a></li>
                         <li><app-notifications></app-notifications></li>
                     </ul>
                     <div class="header__cart__price">item: <span>$150.00</span></div>
