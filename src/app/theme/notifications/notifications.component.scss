@@ -30,7 +30,6 @@
     &:hover {
 
         ul {
-            top: 23px;
             opacity: 1;
             visibility: visible;
         }
@@ -66,27 +65,82 @@
     }
 
     ul {
-        background: #222222;
-        width: 200px;
+        background: #fff;
+        width: 300px;
         text-align: left;
         padding: 5px 0;
         position: absolute;
-        left: 0;
-        top: 43px;
+        left: -140px;
+        top: 24px;
         z-index: 9;
         opacity: 0;
         visibility: hidden;
+        border: 1px solid #eee;
+        height: 250px;
+        overflow: auto;
         @include transition(all, .3s);
 
         li {
             list-style: none;
             display: block;
-            a {
-                font-size: 14px;
-                color: $white-color;
-                padding: 5px 10px;
-                text-decoration: none;
+            border-bottom: 1px solid #dbdaff;
+            margin-right: 0;
+
+            .notify_item_header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                cursor: pointer;
+
+                .notify_info{
+                    a{
+                        text-decoration: none;
+                        color: #605dff;
+                    }
+                }
             }
+
+            .notify_item{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            .notify_item:hover{
+                background-color: #eee;
+            }
+
+            .notify_item .notify_img{
+                margin-right: 15px;
+            }
+
+            .notify_item .notify_info p{
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .notify_item .notify_info p span{
+                color: #605dff;
+                margin-left: 5px;
+            }
+
+            .notify_item .notify_info .notify_time{
+                color: #c5c5e6;
+                font-size: 12px;
+            }
+
+
+        }
+
+        li:last-child{
+            border-bottom: 0;
         }
     }
+}
+
+.read{
+    font-weight: normal !important;
 }

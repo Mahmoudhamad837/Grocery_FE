@@ -9,6 +9,8 @@ import { NotificationService } from './notification.service';
 export class NotificationsComponent implements OnInit {
 
   notifications: any[] = [];
+  isRead: boolean = false;
+
   constructor(
     private notificationService: NotificationService
   ) { }
@@ -24,6 +26,51 @@ export class NotificationsComponent implements OnInit {
     this.notificationService.getNotifications().subscribe(
       (res:any)=>{
         this.notifications = res['notifications'];
+      }
+    );
+  }
+
+  markAsRead(id: any){
+    this.isRead = true;
+    this.notificationService.markAsRead(id).subscribe(
+      res=>{
+        this.getNotifications();
+      },
+      error=>{
+        console.log(error);
+      }
+    );
+  }
+
+  markAllAsRead(){
+    this.notificationService.markAllAsRead().subscribe(
+      res=>{
+        this.getNotifications();
+      },
+      error=>{
+        console.log(error);
+      }
+    );
+  }
+
+  deleteNotification(id: any){
+    this.notificationService.deleteNotification(id).subscribe(
+      res=>{
+        this.getNotifications();
+      },
+      error=>{
+        console.log(error);
+      }
+    );
+  }
+
+  deleteAllNotifications(){
+    this.notificationService.deleteAllNotifications().subscribe(
+      res=>{
+        this.getNotifications();
+      },
+      error=>{
+        console.log(error);
       }
     );
   }

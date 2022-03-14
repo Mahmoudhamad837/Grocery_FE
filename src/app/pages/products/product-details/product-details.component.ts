@@ -85,6 +85,7 @@ export class ProductDetailsComponent implements OnInit {
           ele.title = ele.title.en;
         });
         this.reviews = res['reviews'];
+        this.ratings = 0;
         this.reviews.forEach(review=>{
           this.ratings += review.rating;
         });
@@ -122,5 +123,16 @@ export class ProductDetailsComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  incrementCount(){
+    this.quantity += 1;
+  }
+
+  decrementCount(){
+    this.quantity -= 1;
+    if(this.quantity == 0){
+      this.quantity = 1;
+    }
   }
 }

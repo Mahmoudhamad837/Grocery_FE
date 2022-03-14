@@ -1,0 +1,57 @@
+@import "src/assets/styles/_variable";
+@import "src/assets/styles/_mixins.scss";
+
+.product__pagination {
+    padding-top: 10px;
+
+    a {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #b2b2b2;
+        font-size: 14px;
+        color: #b2b2b2;
+        font-weight: 700;
+        line-height: 28px;
+        text-align: center;
+        margin-right: 16px;
+        @include transition(all, .3s);
+
+        &:hover {
+            background: $primary-color;
+            border-color: $primary-color;
+            color: $white-color;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+/*//////////////////////////pagination*/
+.pagination {
+	display: inline-block;
+	display: flex;
+	justify-content: center;
+	a {
+		color: #1a1a1a;
+		float: left;
+		padding: 8px 16px;
+		text-decoration: none;
+		transition: background-color 0.3s;
+		border: 1px solid #ddd;
+		margin: 0 4px;
+		border-radius: 5px;
+		&:hover {
+			&:not(.active) {
+				background-color: #ddd;
+			}
+		}
+	}
+	a.active {
+		background-color: #7fad39;
+		color: white;
+		border: 1px solid #7fad39;
+	}
+}

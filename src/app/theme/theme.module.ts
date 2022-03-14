@@ -11,6 +11,7 @@ import { TopProductsComponent } from './top-products/top-products.component';
 import { ReviewProductsComponent } from './review-products/review-products.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 
@@ -24,7 +25,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     LatestProductsComponent,
     TopProductsComponent,
     ReviewProductsComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     LatestProductsComponent,
     TopProductsComponent,
     ReviewProductsComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    PaginationComponent
   ]
 })
 export class ThemeModule { }
