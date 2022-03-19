@@ -7,6 +7,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { VerifyComponent } from './verify/verify.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ToggleButtonModule} from 'primeng/togglebutton';
+
 
 
 @NgModule({
@@ -14,13 +16,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     SignupComponent,
     ResetPasswordComponent,
-    VerifyComponent
+    VerifyComponent,
+    
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToggleButtonModule
   ]
 })
 export class AuthModule { }

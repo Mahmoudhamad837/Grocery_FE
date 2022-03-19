@@ -1,40 +1,36 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
+
+<div class="container pt-4 pb-1">
+    <div class="humberger__menu__logo">
+        <a href="#"><img src="assets/images//logo.png" alt=""></a>
+    </div>
+</div>
+<div class="container login__form">
+    <div class="row login-box ">
+        <div class="col-md-12">
             <h2 class="text-center">Login</h2>
             <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="row">
-                    <div class="col-md-9 m-auto mt-2">
-                        <label for="email">Email</label>
-                        <input type="email" formControlName="email" id="email" class="form-control form-control-lg" placeholder="Email"/>
+                    <div class="m-auto mt-3">
+                        <input type="email" formControlName="email" id="email" class="form-control form-control-lg" placeholder="Email or Phone Numer"/>
                     </div>
-
-                    <div class="col-md-9 m-auto mt-2">
-                        <label for="password">Password</label>
-                        <input formControlName="password" type="password" id="password" class="form-control form-control-lg" placeholder="Email"/>
+                    <div id="password-field" class="m-auto mt-2">
+                        <input formControlName="password" [type]="showPassword?'text':'password'" id="password" class="form-control form-control-lg" placeholder="Password"/>
+                        <i *ngIf="!showPassword" class="fa fa-eye-slash" (click)="showPassword=!showPassword"></i>
+                        <i *ngIf="showPassword" class="fa fa-eye" (click)="showPassword=!showPassword"></i>
                     </div>
-
-                    <div class="col-md-9 m-auto mt-2">
-                        <button class="form-control form-control-lg site-btn">Login</button>
+                    <div class="m-auto mt-3">
+                        <button class="form-control button-3d form-control-lg site-btn">Login</button>
                     </div>
+                    <div class="forget-password py-3">
+                        <a routerLink="/auth/signup"class="forget-pass">Forgot password</a>
+                        <a routerLink="/auth/signup"class="forget-pass">Create Account</a>
+                    </div>
+                </div>
+                <div class="">
+                    <a href="#" class="social-button" id="facebook-connect"> <span>Connect with Facebook</span></a>
+                    <a href="#" class="social-button" id="google-connect"> <span>Connect with Google</span></a>
                 </div>
             </form>
-        </div>
-
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-9 m-auto">
-                    <h3 class="text-center">Create your account</h3>
-                    <p>
-                        Create your Jumia customer account in just a few clicks! You can register either using your e-mail address or through your Facebook account.
-                    </p>
-                </div>
-                
-                <div class="col-md-9 m-auto">
-                    <button class="form-control form-control-lg btn btn-primary">Create Account</button>
-                </div>
-            </div>
-            
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-md-8 m-auto">
             <h3>Create Account</h3>
@@ -8,11 +8,6 @@
                         <label for="firstName">Name</label>
                         <input type="text" formControlName="name" class="form-control" id="firstName" placeholder="Name"/>
                     </div>
-
-                    <!-- <div class="col-md-6">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" formControlName="name" class="form-control" id="lastName" placeholder="Last Name"/>
-                    </div> -->
 
                     <div class="col-md-6 my-3">
                         <label for="email">Email</label>
@@ -32,6 +27,50 @@
                     <div class="col-md-12 mb-3">
                         <button class="form-control site-btn">Create Account</button>
                     </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="container pt-4 pb-1">
+    <div class="humberger__menu__logo">
+        <a href="#"><img src="assets/images//logo.png" alt=""></a>
+    </div>
+</div>
+<div class="container signup__form">
+    <div class="row signup-box ">
+        <div class="col-md-12">
+            <h2 class="text-center">Signup</h2>
+            <form [formGroup]="signupForm" (ngSubmit)="signup()">
+                <div class="row">
+                    <div class="m-auto mt-3">
+                        <input type="text" formControlName="name" class="form-control form-control-lg" id="firstName" placeholder="Name"/>
+                    </div>
+                    <div class="m-auto mt-3">
+                        <input type="email" formControlName="email" id="email" class="form-control form-control-lg" placeholder="Email or Phone Numer"/>
+                    </div>
+                    <div id="password-field" class="m-auto mt-2">
+                        <input formControlName="password" [type]="showPass?'text':'password'" id="password" class="form-control form-control-lg" placeholder="Password"/>
+                        <i *ngIf="!showPass" class="fa fa-eye-slash" (click)="showPass=!showPass"></i>
+                        <i *ngIf="showPass" class="fa fa-eye" (click)="showPass=!showPass"></i>
+                    </div>
+                    <div id="confirm_password-field" class="m-auto mt-2">
+                        <input formControlName="checkPassword" [type]="confirmPassword?'text':'password'" id="check" class="form-control form-control-lg" placeholder="confirm Password"/>
+                        <i *ngIf="!confirmPassword" class="fa fa-eye-slash" (click)="confirmPassword=!confirmPassword"></i>
+                        <i *ngIf="confirmPassword" class="fa fa-eye" (click)="confirmPassword=!confirmPassword"></i>
+                    </div>
+                    <div class="m-auto mt-3">
+                        <button class="form-control button-3d form-control-lg site-btn">SIGNUP</button>
+                    </div>
+                    <div class="forget-password pt-3">
+                        <a routerLink="/auth/login" class="forget-pass">Already Have an Account</a>
+                    </div>
+                </div>
+                <div class="">
+                    <a href="#" class="social-button" id="facebook-connect"> <span>Sighup with Facebook</span></a>
+                    <a href="#" class="social-button" id="google-connect"> <span>Sighup with Google</span></a>
                 </div>
             </form>
         </div>

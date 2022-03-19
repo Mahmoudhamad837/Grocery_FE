@@ -9,6 +9,8 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  showPass:boolean=false;
+  confirmPassword:boolean=false;
 
   signupForm: FormGroup;
   constructor(
@@ -40,6 +42,9 @@ export class SignupComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  showPassword(){
+
   }
 
 }
