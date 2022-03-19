@@ -118,11 +118,7 @@
                                         <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5 col-5">
                                             <h2>{{avgRating | number: '1.0-1'}}</h2>
                                             <div class="reviews-number pb-3">
-                                                <i class="icon-star3 icon-star7"></i>
-                                                <i class="icon-star3 icon-star7"></i>
-                                                <i class="icon-star3 icon-star7"></i>
-                                                <i class="icon-star3 icon-star7"></i>
-                                                <i class="icon-star3 "> </i>
+                                                <nz-rate [ngModel]="2" nzDisabled></nz-rate>
                                                 <div>
                                                     <span>{{reviews.length}} reviews</span>
                                                 </div>
@@ -188,7 +184,7 @@
                                                             <div id="review-card" class="card review-card">
                                                                 <div id="card-body0" class="card-body">
                                                                     <h4 class="card-title mb-1">Write a Review</h4>
-                                                                    <div class="stars py-4">
+                                                                    <div class="stars pt-4">
                                                                         
                                                                         <form class="m-0" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
                                                                             <!-- <input class="star star-1" id="star-1" type="radio" name="star_rate" />
@@ -239,7 +235,7 @@
                                             <div class="testi-stars">
                                                 <div class="reviews-number pb-3 ">
                                                     <p class="m-0">{{review.user.name}}</p>
-                                                    <nz-rate [ngModel]="review.rating" name="rates" ></nz-rate>
+                                                    <nz-rate [ngModel]="review.rating" nzDisabled name="rates" ></nz-rate>
                                                 </div>
                                             </div>
                                             <div class="testi-content py-2">

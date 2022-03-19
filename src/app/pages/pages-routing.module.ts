@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
+import { AboutusComponent } from './aboutus/aboutus.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { HomeComponent } from './home/home.component';
 import { PagesComponent } from './pages.component';
+import { PolicyComponent } from './policy/policy.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
     { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
     { path: 'contact-us', component: ContactUsComponent },
     { path: 'home', component: HomeComponent },
+    { path: 'about-us', component: AboutusComponent },
+    { path: 'privacy-policy', component: PolicyComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  },
   ] },
   
