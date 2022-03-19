@@ -40,7 +40,9 @@
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
+                                <span class="dec qtybtn" (click)="decrementCount()">-</span>
                                 <input type="text" name="cart" [(ngModel)]="quantity" value="1">
+                                <span class="inc qtybtn" (click)="incrementCount()">+</span>
                             </div>
                         </div>
                     </div>
@@ -212,7 +214,7 @@
                                                                                 <textarea class="form-control" formControlName="review" rows="5" id="review" placeholder="What did you like or dislike? What did you use this product for?"></textarea>
                                                                             </div>
                                                                             <div class="submit_review">
-                                                                                <button class="btn ">Submit</button>
+                                                                                <button class="btn" type="submit" data-bs-dismiss="modal">Submit</button>
                                                                             </div>
                                                                         </form>
                                                                     </div>

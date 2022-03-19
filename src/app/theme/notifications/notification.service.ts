@@ -30,4 +30,20 @@ export class NotificationService {
   getNotifications(){
     return this.http.get('notifications', {});
   }
+
+  markAsRead(id: any){
+    return this.http.put('notifications/' + id, {}, {});
+  }
+
+  markAllAsRead(){
+    return this.http.put('notifications/read/all', {}, {});
+  }
+
+  deleteNotification(id: any){
+    return this.http.delete('notifications/' + id, {});
+  }
+
+  deleteAllNotifications(){
+    return this.http.delete('notifications/delete/all/', {});
+  }
 }                                                                                                                                                                                                                                                                                                                                                 

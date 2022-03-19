@@ -1,0 +1,12 @@
+<div id="product__pagination" class="pt-5">
+    <div class="pagination">
+        <a href="javascript:void(0);" (click)="onClickPage(activePage - 1)"><i class="fa fa-long-arrow-left"></i></a>
+        <a *ngFor="let item of pages" (click)="onClickPage(item)" [ngClass]="{'active': activePage === item}">{{item}}</a>
+        <!-- <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">...</a> -->
+        <a href="javascript:void(0);" (click)="onClickPage(activePage + 1)"><i class="fa fa-long-arrow-right"></i></a>
+    </div>
+</div>

@@ -1,11 +1,97 @@
 <div class="header__top__right__language">
     <div class="insider">
         <i class="fa fa-bell"></i>
-        <span>0</span>
+        <span>{{notifications.length}}</span>
     </div>
     <!-- <span class="arrow_carrot-down"></span> -->
     <ul>
-        <li><a href="#">Spanis</a></li>
-        <li><a href="#">English</a></li>
+        <li>
+            <div class="notify_item_header">
+                <div class="notify_info">
+                    <a routerLink="/all-notifications">See All Notifcations</a>
+                </div>
+                <div class="notify_info">
+                    <a (click)="deleteAllNotifications()">Clear All </a>
+                </div>
+            </div>
+        </li>
+        <li *ngFor="let notification of notifications">
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img [src]="notification.user.image" alt="profile_pic" style="width: 50px">
+                </div>
+                <div class="notify_info" (click)="markAsRead(notification._id)">
+                    <p>{{notification.title}}</p>
+                    <p [ngClass]="notification.isRead?'read':''">{{notification.content}}</p>
+                    <span class="notify_time">{{notification.time | date}}</span>
+                </div>
+                <div class="notify_close">
+                    <i (click)="deleteNotification(notification._id)" class="pi pi-times " style="color: rgb(143, 21, 21);"></i>
+                </div>
+            </div>
+        </li>
     </ul>
+
+    <!-- <div class="wrapper">
+        <div class="notification_wrap">
+            <div class="dropdown">
+                <div class="notify_item_header">
+                    <div class="notify_info">
+                        <a routerLink="/all-notifications">See All Notifcations</a>
+                    </div>
+                    <div class="notify_info">
+                        <a href="#">Clear All </a>
+                    </div>
+                </div>
+                <div class="notify_item">
+                    <div class="notify_img">
+                        <img src="assets/notificationImage/not_1.png" alt="profile_pic" style="width: 50px">
+                    </div>
+                    <div class="notify_info" (click)="markAsRead()">
+                        <p [ngClass]="isRead?'read':''">Alex commented on<span>Timeline Share</span></p>
+                        <span class="notify_time">10 minutes ago</span>
+                    </div>
+                    <div class="notify_close">
+                        <i class="pi pi-times " style="color: rgb(143, 21, 21);"></i>
+                    </div>
+                </div>
+                <div class="notify_item">
+                    <div class="notify_img">
+                        <img src="assets/notificationImage/not_1.png" alt="profile_pic" style="width: 50px">
+                    </div>
+                    <div class="notify_info">
+                        <p>Ben hur commented on your<span>Timeline Share</span></p>
+                        <span class="notify_time">55 minutes ago</span>
+                    </div>
+                    <div class="notify_close">
+                        <i class="pi pi-times " style="color: rgb(143, 21, 21);"></i>
+                    </div>
+                </div>
+                <div class="notify_item">
+                    <div class="notify_img">
+                        <img src="assets/notificationImage/not_1.png" alt="profile_pic" style="width: 50px">
+                    </div>
+                    <div class="notify_info">
+                        <p>Meryn trant liked your<span>Cover Picture</span></p>
+                        <span class="notify_time">2 hours ago</span>
+                    </div>
+                    <div class="notify_close">
+                        <i class="pi pi-times " style="color: rgb(143, 21, 21);"></i>
+                    </div>
+                </div>
+                <div class="notify_item">
+                    <div class="notify_img">
+                        <img src="assets/notificationImage/not_1.png" alt="profile_pic" style="width: 50px">
+                    </div>
+                    <div class="notify_info">
+                        <p>John wick commented on your<span>Profile Picture</span></p>
+                        <span class="notify_time">6 hours ago</span>
+                    </div>
+                    <div class="notify_close">
+                        <i class="pi pi-times " style="color: rgb(143, 21, 21);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
 </div>

@@ -4,23 +4,30 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 
-const AUTH_URLS = ['supplier/reservations'];
+const AUTH_URLS = [
+  "addresses", "orders", "users", "auth/me", "reviews", "products/review", "api/notifications"
+];
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
+  
     constructor(
         private router: Router
     ) {} 
    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {  
       const token = localStorage.getItem('token');
-  
-     if (token) {
-       // If we have a token, we set it to the header
-       let headers = request.headers.set("Authorization", 'Bearer ' + localStorage.getItem('token'))
-       request = request.clone({
-          headers
-       });
-    }
+      AUTH_URLS.forEach(ele=>{
+        if(request.url.match(ele)){
+          if (token) {
+            // If we have a token, we set it to the header
+            let headers = request.headers.set("Authorization", 'Bearer ' + localStorage.getItem('token'))
+            request = request.clone({
+               headers
+            });
+         }
+        }
+      })
+     
   
     return next.handle(request).pipe(
       retry(1),
