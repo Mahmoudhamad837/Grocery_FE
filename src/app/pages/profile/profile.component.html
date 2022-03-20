@@ -10,12 +10,11 @@
                     <div class="row">
                         <div class="col-md-3 border-right">
                             <div class="d-flex flex-column align-items-center text-center p-3 py-5 main-image">
-                                <img class="rounded-circle mt-5" width="150px" [src]="image? image: 'assets/images/user.png'">
+                                <img class="rounded-circle mt-5" width="150px"
+                                    [src]="image ? image : 'assets/images/user.png'" />
                                 <div class="inner mt-5">
-                                    <input
-                                        style="display: none"
-                                        type="file" (change)="onFileChanged($event)"
-                                        #fileInput>
+                                    <input style="display: none" type="file" (change)="onFileChanged($event)"
+                                        #fileInput />
                                     <i class="fa fa-plus" (click)="fileInput.click()"></i>
                                 </div>
                             </div>
@@ -26,20 +25,39 @@
                                     <h4 class="text-right">Profile Settings</h4>
                                 </div>
                                 <div class="row mt-2">
-                                    
                                     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
                                         <div class="row">
-                                            <div class="col-md-12"><label class="labels">Name</label><input type="text" formControlName="name" class="form-control" placeholder="Enter Your Name"></div>
-                                            <!-- <div class="col-md-12"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div> -->
-                                            <div class="col-md-12"><label class="labels">Email</label><input type="email" formControlName="email" class="form-control" placeholder="Enter Your Email"></div>
-                                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" formControlName="mobile" class="form-control" placeholder="enter phone number" value=""></div>
                                             <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="labels">First Name</label>
+                                                        <input type="text" formControlName="name" class="form-control"placeholder="Enter Your Name" />
+                                                    </div>
+                                                    <div  class="col-md-6">
+                                                        <label class="labels">Last Name</label>
+                                                        <input type="text" formControlName="name" class="form-control"placeholder="Enter Your Name" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-12"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div> -->
+                                            <div class="col-md-12">
+                                                <label class="labels">Email</label><input type="email"
+                                                    formControlName="email" class="form-control"
+                                                    placeholder="Enter Your Email" />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="labels">Mobile Number</label><input type="text"
+                                                    formControlName="mobile" class="form-control"
+                                                    placeholder="enter phone number" value="" />
+                                            </div>
+                                            <div class="col-md-6">
                                                 <label class="labels">Gender</label>
-                                                <select class="form-select" aria-label="Default select example" formControlName="gender">
+                                                <select class="form-select" aria-label="Default select example"
+                                                    formControlName="gender">
                                                     <option selected disabled>Choose Your Gender</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
-                                                  </select>
+                                                </select>
                                             </div>
                                             <div class="col-md-12 mt-5 text-center">
                                                 <button class="site-btn" type="submit" [disabled]="!userForm.valid">
@@ -48,10 +66,9 @@
                                             </div>
                                         </div>
                                         <!-- <button type="submit">click</button> -->
-                                        
                                     </form>
                                 </div>
-                               
+
                                 <!-- <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div> -->
                             </div>
                         </div>
